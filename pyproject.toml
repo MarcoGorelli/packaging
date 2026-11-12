@@ -132,6 +132,14 @@ native_parser = true
 module = ["_manylinux", "pretend"]
 ignore_missing_imports = true
 
+[tool.pyrefly]
+project-includes = ["src", "tests", "noxfile.py"]
+python-version = "3.10"
+preset = "legacy"
+ignore-missing-imports = ["_manylinux", "pretend"]
+# Without this, an explicit config limits imports to src/, breaking tests/ (pyrefly#1239, #3005).
+enable-fallback-search-path = true
+
 [tool.ruff]
 extend-exclude = [
     "src/packaging/licenses/_spdx.py"

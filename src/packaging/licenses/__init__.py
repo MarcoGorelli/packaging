@@ -156,7 +156,7 @@ def canonicalize_license_expression(
         raise InvalidLicenseExpression(message) from None
 
     # Take a final pass to check for unknown licenses/exceptions.
-    normalized_tokens = []
+    normalized_tokens: list[str] = []
     last_license_start = False
     for index, token in enumerate(tokens):
         if token in {"or", "and", "with", "(", ")"}:
